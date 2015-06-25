@@ -15,6 +15,11 @@ To use this plugin, first install dependencies with:
 
 <h3>Change history</h3>
 
+<h4>1.0.3</h4>
+<ul>
+<li>Add better divisions in preview layover to help with spacing</li>
+</ul>
+
 <h4>1.0.2</h4>
 <ul>
 <li>Change styling of layover so that the button opacity is not changed</li>
