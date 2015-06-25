@@ -3,7 +3,7 @@
  * Plugin Name: austeve Image Gallery
  * Plugin URI: https://github.com/australiansteve/wp-plugins/austeve-image-gallery
  * Description: Display a set on images in a page or post
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: AustralianSteve
  * Author URI: http://AustralianSteve.com
  * License: GPL2
@@ -129,12 +129,12 @@ class austeve_gallery_widget extends WP_Widget {
 
         // This is where you run the code and display the output
         $widgetOutput = "<div class='container'>";
-        $widgetOutput .= "<div class='layover'><h2 class='title'>".$instance['title']."</h2>";
-        if (isset($instance['description'])) {
-            $widgetOutput .= "<div class='description'>".$instance['description']."</div>";
-        }
+        $widgetOutput .= "<div class='layover'>";
+        $widgetOutput .= "<div class='header'><h2 class='title'>".$instance['title']."</h2></div>";
+        $widgetOutput .= "<div class='middle'><div class='description'>".$instance['description']."</div></div>";
+        
         if (isset($instance['action_url'])) {
-            $widgetOutput .= "<a href='".$instance['action_url']."' class='button' title='".$instance['title']."'>".$instance['action_verb']."</a>";
+            $widgetOutput .= "<div class='footer'><a href='".$instance['action_url']."' class='button' title='".$instance['title']."'>".$instance['action_verb']."</a></div>";
         }
         $widgetOutput .= "</div>"; //div.layover
         $widgetOutput .= "<div class='img'><img src='".$instance['preview_image']."'/></div>";

@@ -13,15 +13,18 @@
 	background-color: rgba(0, 0, 0, 0.5); /* Black */
 	z-index: 2; 
 	color: white;
+}
+
+.widget_austeve_gallery_widget .layover > .header, .widget_austeve_gallery_widget .layover > .middle, .widget_austeve_gallery_widget .layover > .footer {
+	height: 33%;
+}
+
+.widget_austeve_gallery_widget .layover > .header {
 	padding-top: 2rem;
 }
 
 .widget_austeve_gallery_widget .layover .title {
 	color: white;
-}
-
-.widget_austeve_gallery_widget .layover .button {
-  	margin-top: 3rem;
 }
 
 .widget_austeve_gallery_widget .img {
