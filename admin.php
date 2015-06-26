@@ -13,34 +13,28 @@ function austeve_image_gallery_options_page() {
 		<input name="Submit" type="submit" value="<?php esc_attr_e('Save Changes'); ?>" />
 	</form>
 </div>
- 
 <?php
-}?>
+}
 
-<?php 
 function austeve_image_gallery_section_text() {
 	echo '<p></p>';
 } 
-?>
 
-<?php 
 function austeve_image_gallery_setting_num_sidebars() {
 	$options = get_option('austeve_image_gallery_options');
 	$num_sidebars_val = isset($options['num_sidebars']) ? $options['num_sidebars'] : '1';
 	echo "<input id='austeve_image_gallery_num_sidebars' name='austeve_image_gallery_options[num_sidebars]' size='40' type='text' value='{$num_sidebars_val}' />";
 } 
-?>
 
-<?php // add the admin settings and such
+// add the admin settings and such
 function austeve_image_gallery_admin_init(){
 	register_setting( 'austeve_image_gallery_options', 'austeve_image_gallery_options', 'austeve_image_gallery_options_validate' );
 	add_settings_section('austeve_image_gallery_main', 'Main Settings', 'austeve_image_gallery_section_text', 'austeve_image_gallery');
 	add_settings_field('austeve_image_gallery_num_sidebars', 'Number of sidebars [1-9]:', 'austeve_image_gallery_setting_num_sidebars', 'austeve_image_gallery', 'austeve_image_gallery_main');
 }
 add_action('admin_init', 'austeve_image_gallery_admin_init');
-?>
 
-<?php // validate our options
+// validate our options
 function austeve_image_gallery_options_validate($input) {
 	$options = get_option('austeve_image_gallery_options');
 	$options['num_sidebars'] = trim($input['num_sidebars']);
@@ -58,9 +52,8 @@ function austeve_image_gallery_options_validate($input) {
 	}
 	return $options;
 }
-?>
 
-<?php // add the admin options page itself
+// add the admin options page itself
 function austeve_gallery_admin_add_page() {
     add_options_page('AUSteve Gallery settings', 'AUSteve Gallery settings', 'manage_options', 'austeve_image_gallery', 'austeve_image_gallery_options_page');
 }
