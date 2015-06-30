@@ -16,6 +16,11 @@ function austeve_image_gallery_options_page() {
 <?php
 }
 
+$preview_format_list = array( 
+	0 => "Grid view 1", 
+	1 => "Small panel view" 
+);
+
 function austeve_image_gallery_section_text() {
 	echo '<p></p>';
 } 
@@ -26,17 +31,38 @@ function austeve_image_gallery_setting_num_sidebars() {
 	echo "<input id='austeve_image_gallery_num_sidebars' name='austeve_image_gallery_options[num_sidebars]' size='40' type='text' value='{$num_sidebars_val}' />";
 } 
 
+function austeve_image_gallery_setting_preview_format() {
+	global $preview_format_list;
+	$options = get_option('austeve_image_gallery_options');
+	$preview_format_val = isset($options['preview_format']) ? $options['preview_format'] : '0';
+
+	echo "<select id='austeve_image_gallery_preview_format' name='austeve_image_gallery_options[preview_format]'>";
+
+	foreach($preview_format_list as $key => $value) {
+		echo "<option value='".$key."'";
+		if ($key == $preview_format_val) {
+			echo " selected";
+		}
+		echo ">".$value."</option>";
+	}
+	echo "</select>";
+} 
+
 // add the admin settings and such
 function austeve_image_gallery_admin_init(){
 	register_setting( 'austeve_image_gallery_options', 'austeve_image_gallery_options', 'austeve_image_gallery_options_validate' );
 	add_settings_section('austeve_image_gallery_main', 'Main Settings', 'austeve_image_gallery_section_text', 'austeve_image_gallery');
 	add_settings_field('austeve_image_gallery_num_sidebars', 'Number of sidebars [1-9]:', 'austeve_image_gallery_setting_num_sidebars', 'austeve_image_gallery', 'austeve_image_gallery_main');
+	add_settings_field('austeve_image_gallery_preview_format', 'Gallery preview format:', 'austeve_image_gallery_setting_preview_format', 'austeve_image_gallery', 'austeve_image_gallery_main');
 }
 add_action('admin_init', 'austeve_image_gallery_admin_init');
 
 // validate our options
 function austeve_image_gallery_options_validate($input) {
+	global $preview_format_list;
 	$options = get_option('austeve_image_gallery_options');
+
+	//validation on num_sidebars
 	$options['num_sidebars'] = trim($input['num_sidebars']);
 
 	if(!preg_match('/^[1-9]$/i', $options['num_sidebars'])) {
@@ -50,6 +76,22 @@ function austeve_image_gallery_options_validate($input) {
 	    );
 	    return;
 	}
+
+	//validation on preview_format
+	$options['preview_format'] = $input['preview_format'];
+
+	if(!preg_match('/^[0-9]$/i', $options['preview_format'])) {
+		$options['preview_format'] = '0';
+
+		add_settings_error(
+	        'preview_format_non_numeric',
+	        esc_attr( 'settings_updated' ),
+	        'Gallery preview format is invalid. Defaulting to '.$preview_format_list[0],
+	        'error'
+	    );
+	    return;
+	}
+
 	return $options;
 }
 

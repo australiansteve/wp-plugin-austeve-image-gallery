@@ -18,6 +18,7 @@ class austeve_gallery_widget extends WP_Widget {
     // Creating widget front-end
     // This is where the action happens
     public function widget( $args, $instance ) {
+
         $title = apply_filters( 'widget_title', $instance['title'] );
         // before and after widget arguments are defined by themes
         echo $args['before_widget'];
@@ -112,12 +113,13 @@ function austeve_gallery_load_widget() {
 
     $options = get_option('austeve_image_gallery_options');
     $s = isset($options['num_sidebars']) ? $options['num_sidebars'] : '1';
+    $pf = isset($options['preview_format']) ? $options['preview_format'] : '0';
 
     for ( $i = 1; $i <= $s; $i++ ) {
         register_sidebar( array(
             'name'          => 'Gallery preview sidebar '.$i,
             'id'            => 'austeve_gallery_'.$i,
-            'before_widget' => '<li class="widget_austeve_gallery_widget widget_austeve_gallery_widget_'.$i.'">',
+            'before_widget' => '<li class="widget_austeve_gallery_widget preview-format-'.$pf.'">',
             'after_widget'  => '</li>',
             'before_title'  => '',
             'after_title'   => '',

@@ -16,6 +16,11 @@ To use this plugin, first install dependencies with:
 
 <h3>Change history</h3>
 
+<h4>1.0.6</h4>
+<ul>
+<li>Add second option on admin page that specifies the prebuilt style to use for the preview gallery</li>
+</ul>
+
 <h4>1.0.5</h4>
 <ul>
 <li>Fix whitespace error in admin page that didn't appear in dev</li>
