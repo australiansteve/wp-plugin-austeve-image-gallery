@@ -46,6 +46,7 @@ function austeve_image_gallery_setting_preview_format() {
 		echo ">".$value."</option>";
 	}
 	echo "</select>";
+	echo "<br/><strong>Note: </strong><em>Only change this setting if you are sure that your theme supports the selected choice.</em>";
 } 
 
 // add the admin settings and such
