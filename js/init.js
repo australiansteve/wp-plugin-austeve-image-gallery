@@ -20,12 +20,10 @@ jQuery(document).on('mouseenter', ".widget_austeve_gallery_widget", function() {
     jQuery(this).find(".bg-img").css('opacity', '0.5'); 
     
     var img = jQuery(this).find(".preview-img>img");
-    jQuery("#previewArea").html("<img src='" + img.attr('src') + "'/>");    
+    jQuery("#previewArea").html("<a href='" + img.attr('data-url') + "'><img src='" + img.attr('src') + "'/></a>");    
 });
 
 jQuery(document).on('mouseleave', ".widget_austeve_gallery_widget", function() {
 	jQuery(this).find(".layover").hide();   
-    jQuery(this).find(".bg-img").css('opacity', '1'); 
-    
-    jQuery("#previewArea").html("");      
+    jQuery(this).find(".bg-img").css('opacity', '1');     
 });

@@ -16,6 +16,16 @@ To use this plugin, first install dependencies with:
 
 <h3>Change history</h3>
 
+<h4>1.0.10</h4>
+<ul>
+<li>Add spacing below list items for small panel preview. Do not clear preview panel on mouseleave. Make entire preview image a link the the page</li>
+</ul>
+
+<h4>1.0.9</h4>
+<ul>
+<li>Add note on admin page about changing the preview format only if the theme supports it</li>
+</ul>
+
 <h4>1.0.8</h4>
 <ul>
 <li>Fix styling of preview format 0 by usinng a css background image rather than transformY</li>

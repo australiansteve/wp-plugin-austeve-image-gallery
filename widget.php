@@ -48,7 +48,7 @@ class austeve_gallery_widget extends WP_Widget {
             $widgetOutput .= "<div class='header'><h2 class='title'>".$instance['title']."</h2></div>";
             $widgetOutput .= "<div class='footer'><i class='fa fa-arrow-circle-right fa-2x'></i></div>";
             $widgetOutput .= "</div>"; //div.container
-            $widgetOutput .= "</a><div class='preview-img' style='display:none'><img src='".$instance['preview_image']."'/></div>";
+            $widgetOutput .= "</a><div class='preview-img' style='display:none'><img src='".$instance['preview_image']."' data-url='".$instance['action_url']."' /></div>";
         }
 
 

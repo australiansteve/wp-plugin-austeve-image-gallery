@@ -51,7 +51,7 @@ ul.austeve_gallery_preview_0 li { /* Possibly only needed on large/medium screen
 /* Format 1 - Small panel */
 
 li.widget_austeve_gallery_widget.preview-format-1 {
-	margin: 0;
+	margin: 0 0 1rem 0;
 	padding: 0;
 }
 
