@@ -3,8 +3,8 @@ ul.austeve_gallery_preview_0 li { /* Possibly only needed on large/medium screen
 	height: 300px;
 	max-height: 300px;
 	border: none;
-	padding: 0;
-	margin: 0 0.5rem;
+	padding: 0.5rem 0.5rem;
+	margin: 0;
 
 }
 

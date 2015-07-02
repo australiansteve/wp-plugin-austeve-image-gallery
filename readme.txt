@@ -16,6 +16,11 @@ To use this plugin, first install dependencies with:
 
 <h3>Change history</h3>
 
+<h4>1.0.11</h4>
+<ul>
+<li>Flip margin/padding on li (format-0) so > 3 items doesn't result in a line break</li>
+</ul>
+
 <h4>1.0.10</h4>
 <ul>
 <li>Add spacing below list items for small panel preview. Do not clear preview panel on mouseleave. Make entire preview image a link the the page</li>
