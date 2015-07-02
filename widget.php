@@ -24,17 +24,33 @@ class austeve_gallery_widget extends WP_Widget {
         echo $args['before_widget'];
 
         // This is where you run the code and display the output
-        $widgetOutput = "<div class='container'>";
-        $widgetOutput .= "<div class='layover'>";
-        $widgetOutput .= "<div class='header'><h2 class='title'>".$instance['title']."</h2></div>";
-        $widgetOutput .= "<div class='middle'><div class='description'>".$instance['description']."</div></div>";
-        
-        if (isset($instance['action_url'])) {
-            $widgetOutput .= "<div class='footer'><a href='".$instance['action_url']."' class='button' title='".$instance['title']."'>".$instance['action_verb']."</a></div>";
+        $widgetOutput = "";
+
+        $options = get_option('austeve_image_gallery_options');
+        $pf = isset($options['preview_format']) ? $options['preview_format'] : '0';
+
+        if ($pf == '0') {
+            $widgetOutput .= "<div class='container'>";
+            $widgetOutput .= "<div class='layover'>";
+            $widgetOutput .= "<div class='header'><h2 class='title'>".$instance['title']."</h2></div>";
+            $widgetOutput .= "<div class='middle'><div class='description'>".$instance['description']."</div></div>";
+            
+            if (isset($instance['action_url'])) {
+                $widgetOutput .= "<div class='footer'><a href='".$instance['action_url']."' class='button action-url' title='".$instance['title']."'>".$instance['action_verb']."</a></div>";
+            }
+            $widgetOutput .= "</div>"; //div.layover
+            $widgetOutput .= "<div class='bg-img'><img src='".$instance['preview_image']."'/></div>";
+            $widgetOutput .= "</div>"; //div.container
         }
-        $widgetOutput .= "</div>"; //div.layover
-        $widgetOutput .= "<div class='img'><img src='".$instance['preview_image']."'/></div>";
-        $widgetOutput .= "</div>"; //div.container
+        else if ($pf == '1') {
+            $widgetOutput .= "<a href='".$instance['action_url']."' class='action-url'>";
+            $widgetOutput .= "<div class='container'>";
+            $widgetOutput .= "<div class='header'><h2 class='title'>".$instance['title']."</h2></div>";
+            $widgetOutput .= "<div class='footer'><i class='fa fa-arrow-circle-right fa-2x'></i></div>";
+            $widgetOutput .= "</div>"; //div.container
+            $widgetOutput .= "</a><div class='preview-img' style='display:none'><img src='".$instance['preview_image']."'/></div>";
+        }
+
 
         echo __( $widgetOutput, 'austeve_gallery_widget_domain' );
         echo $args['after_widget'];

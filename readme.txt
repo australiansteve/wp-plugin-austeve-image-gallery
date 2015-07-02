@@ -16,6 +16,11 @@ To use this plugin, first install dependencies with:
 
 <h3>Change history</h3>
 
+<h4>1.0.7</h4>
+<ul>
+<li>Add better support for second preview format. Return only necessary items & basic styling</li>
+</ul>
+
 <h4>1.0.6</h4>
 <ul>
 <li>Add second option on admin page that specifies the prebuilt style to use for the preview gallery</li>

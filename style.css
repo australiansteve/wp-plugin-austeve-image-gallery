@@ -44,14 +44,17 @@ li.widget_austeve_gallery_widget.preview-format-1 {
 }
 
 .widget_austeve_gallery_widget.preview-format-1 .container {
-	width: 100%;
-	max-height: 80px;
+	border: 2px solid black;
+  	padding: 1rem;
 }
 
-.widget_austeve_gallery_widget.preview-format-1 .layover {
-	display: none;
+
+.widget_austeve_gallery_widget.preview-format-1 .header {
+	float:left;
 }
 
-.widget_austeve_gallery_widget.preview-format-1 img {
-	transform: translateY(calc(40px - 50%));
+
+.widget_austeve_gallery_widget.preview-format-1 .footer {
+	text-align: right;
 }
+

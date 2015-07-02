@@ -14,12 +14,18 @@ function slickInit() {
 	});
 }
 
-jQuery(document).on('mouseover', ".widget_austeve_gallery_widget", function() {
-    jQuery(this).find(".layover").show(); 
-    jQuery(this).find(".img").css('opacity', '0.5');     
+jQuery(document).on('mouseenter', ".widget_austeve_gallery_widget", function() {
+	
+	jQuery(this).find(".layover").show(); 
+    jQuery(this).find(".bg-img").css('opacity', '0.5'); 
+    
+    var img = jQuery(this).find(".preview-img>img");
+    jQuery("#previewArea").html("<img src='" + img.attr('src') + "'/>");    
 });
 
-jQuery(document).on('mouseout', ".widget_austeve_gallery_widget", function() {
-    jQuery(this).find(".layover").hide();   
-    jQuery(this).find(".img").css('opacity', '1');   
+jQuery(document).on('mouseleave', ".widget_austeve_gallery_widget", function() {
+	jQuery(this).find(".layover").hide();   
+    jQuery(this).find(".bg-img").css('opacity', '1'); 
+    
+    jQuery("#previewArea").html("");      
 });
