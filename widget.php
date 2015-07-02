@@ -31,15 +31,17 @@ class austeve_gallery_widget extends WP_Widget {
 
         if ($pf == '0') {
             $widgetOutput .= "<div class='container'>";
+
             $widgetOutput .= "<div class='layover'>";
             $widgetOutput .= "<div class='header'><h2 class='title'>".$instance['title']."</h2></div>";
             $widgetOutput .= "<div class='middle'><div class='description'>".$instance['description']."</div></div>";
-            
-            if (isset($instance['action_url'])) {
-                $widgetOutput .= "<div class='footer'><a href='".$instance['action_url']."' class='button action-url' title='".$instance['title']."'>".$instance['action_verb']."</a></div>";
-            }
+            $widgetOutput .= "<div class='footer'><a href='".$instance['action_url']."' class='button action-url' title='".$instance['title']."'>".$instance['action_verb']." <i class='fa fa-arrow-circle-right'></i></a></div>";
             $widgetOutput .= "</div>"; //div.layover
+
+            $widgetOutput .= "<a href='".$instance['action_url']."' class='action-url'>";
             $widgetOutput .= "<div class='bg-img' style='background-image: url(\"".$instance['preview_image']."\")'></div>";
+            $widgetOutput .= "</a>";
+
             $widgetOutput .= "</div>"; //div.container
         }
         else if ($pf == '1') {
@@ -50,7 +52,6 @@ class austeve_gallery_widget extends WP_Widget {
             $widgetOutput .= "</div>"; //div.container
             $widgetOutput .= "</a><div class='preview-img' style='display:none'><img src='".$instance['preview_image']."' data-url='".$instance['action_url']."' /></div>";
         }
-
 
         echo __( $widgetOutput, 'austeve_gallery_widget_domain' );
         echo $args['after_widget'];

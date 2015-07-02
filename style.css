@@ -1,5 +1,5 @@
 
-ul.austeve_gallery_preview_0 li { /* Possibly only needed on large/medium screen */
+ul.austeve_gallery_preview li {
 	height: 300px;
 	max-height: 300px;
 	border: none;
