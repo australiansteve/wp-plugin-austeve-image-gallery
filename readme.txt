@@ -16,6 +16,11 @@ To use this plugin, first install dependencies with:
 
 <h3>Change history</h3>
 
+<h4>1.0.8</h4>
+<ul>
+<li>Fix styling of preview format 0 by usinng a css background image rather than transformY</li>
+</ul>
+
 <h4>1.0.7</h4>
 <ul>
 <li>Add better support for second preview format. Return only necessary items & basic styling</li>

@@ -1,12 +1,22 @@
+
+ul.austeve_gallery_preview_0 li { /* Possibly only needed on large/medium screen */
+	height: 300px;
+	max-height: 300px;
+	border: none;
+	padding: 0;
+	margin: 0 0.5rem;
+
+}
+
 .widget_austeve_gallery_widget.preview-format-0 .container {
 	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
+	width: 100%;
+	height: 100%;
 }
 
 .widget_austeve_gallery_widget.preview-format-0 .layover {
 	display: none;
-	position: absolute;
+	position: relative;
 	text-align: center;
 	width: 100%;
 	height: 100%;
@@ -27,14 +37,16 @@
 	color: white;
 }
 
-.widget_austeve_gallery_widget.preview-format-0 .img {
-	display: block;
+.widget_austeve_gallery_widget.preview-format-0 .bg-img {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
 }
-
-ul.austeve_gallery_preview_0 { /* Possibly only needed on large/medium screen */
-	padding-top: 8rem;
-}
-
 
 /* Format 1 - Small panel */
 
@@ -58,3 +70,7 @@ li.widget_austeve_gallery_widget.preview-format-1 {
 	text-align: right;
 }
 
+
+
+
+/* For tinkering */

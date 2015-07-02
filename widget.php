@@ -39,7 +39,7 @@ class austeve_gallery_widget extends WP_Widget {
                 $widgetOutput .= "<div class='footer'><a href='".$instance['action_url']."' class='button action-url' title='".$instance['title']."'>".$instance['action_verb']."</a></div>";
             }
             $widgetOutput .= "</div>"; //div.layover
-            $widgetOutput .= "<div class='bg-img'><img src='".$instance['preview_image']."'/></div>";
+            $widgetOutput .= "<div class='bg-img' style='background-image: url(\"".$instance['preview_image']."\")'></div>";
             $widgetOutput .= "</div>"; //div.container
         }
         else if ($pf == '1') {
