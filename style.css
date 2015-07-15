@@ -1,3 +1,17 @@
+/* Styling of actual galleries */
+div.austeve-gallery-image-container {
+	text-align: center;
+}
+
+div.austeve-gallery-image-container > img{
+	margin: auto;
+}
+
+.slick-slider ul.slick-dots {
+	margin-left: 0;
+}
+
+/* Styling of gallery previews ie. Widget styling */
 
 ul.austeve_gallery_preview li {
 	height: 300px;
@@ -7,6 +21,8 @@ ul.austeve_gallery_preview li {
 	margin: 0;
 
 }
+
+/* Format 0 - Grid */
 
 .widget_austeve_gallery_widget.preview-format-0 .container {
 	position: relative;
@@ -69,8 +85,6 @@ li.widget_austeve_gallery_widget.preview-format-1 {
 .widget_austeve_gallery_widget.preview-format-1 .footer {
 	text-align: right;
 }
-
-
 
 
 /* For tinkering */
