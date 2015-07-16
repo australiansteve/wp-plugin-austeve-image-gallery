@@ -3,7 +3,7 @@
  * Plugin Name: AUSteve Image Gallery
  * Plugin URI: https://github.com/australiansteve/wp-plugins/austeve-image-gallery
  * Description: Display a set of images in a page or post
- * Version: 1.0.12
+ * Version: 1.0.14
  * Author: AustralianSteve
  * Author URI: http://AustralianSteve.com
  * License: GPL2
@@ -37,17 +37,27 @@ function insert_images($atts) {
 	$atts = shortcode_atts( array(
         'taxonomy' => 'media_category',
         'slug' => 'default-slug',
-        'numImages' => '-1'
+        'num_images' => '-1',
+        'image_previews' => 'false'
     ), $atts );
 
-	$returnString = "<div class='austeve-gallery-images'>";
+
+	$returnString = "<div class='austeve-gallery-images";
+
+    $imageDots = ($atts['image_previews'] === "true" ? true : false);
+    if ($imageDots)
+    {
+        $returnString .= " image-dots";
+    }
+
+    $returnString .= "'>";
 
 	$image_ids = get_attachment_ids_by_slug( $atts['slug'], $atts['taxonomy']);
 
-    if (count($image_ids) > $atts['numImages'] && $atts['numImages'] > 0)
+    if (count($image_ids) > $atts['num_images'] && $atts['num_images'] > 0)
     {
     	//Return random set of images - shuffle them for shufflings sake
-    	$return_keys = array_rand($image_ids, $atts['numImages']);
+    	$return_keys = array_rand($image_ids, $atts['num_images']);
 
     	foreach($return_keys as $key)
     	{
@@ -68,6 +78,8 @@ function insert_images($atts) {
     }
 
     $returnString .= "</div>";
+
+    $returnString .= "<script>var imageDots = ".($imageDots ? 'true' : 'false').";</script>";
 
     return $returnString;
 

@@ -1,0 +1,41 @@
+/* Styling of actual galleries */
+div.austeve-gallery-image-container {
+	text-align: center;
+}
+
+div.austeve-gallery-image-container > img{
+	margin: auto;
+}
+
+.slick-slider ul.slick-dots {
+	margin-left: 0;
+}
+
+/* For tinkering */
+
+/* For image 'dots' */
+.austeve-gallery-images.image-dots.slick-slider {
+
+	margin-bottom: 100px;
+
+	.slick-dots {
+		bottom: -120px;
+		overflow-x: scroll;
+  		white-space: nowrap;
+
+		button {
+			display: none;
+		}
+
+		li {
+			width: 80px;
+			height: 60px;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		.slick-active {
+			border: 1px solid black;
+		}
+	}
+}

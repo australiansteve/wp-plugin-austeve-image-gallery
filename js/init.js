@@ -1,6 +1,13 @@
 
 jQuery(document).ready(function(){
 	slickInit();
+
+	if (imageDots) {
+		jQuery(".slick-dots li").each(function(i) {
+			var val = jQuery(".slick-slide[data-slick-index='"+i+"'] img").attr('src');
+			jQuery(this).css("background-image", "url('" + val + "')");
+		});
+	}
 });
 
 function slickInit() {

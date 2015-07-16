@@ -16,6 +16,16 @@ To use this plugin, first install dependencies with:
 
 <h3>Change history</h3>
 
+<h4>1.0.14</h4>
+<ul>
+<li>Allow for >8 images </li>with thumbnails by scrolling the preview panel</li>
+</ul>
+
+<h4>1.0.13</h4>
+<ul>
+<li>Add ability to use thumbnails instead of dots by adding 'image_previews' parameter to shortcode. Start using SASS as well</li>
+</ul>
+
 <h4>1.0.12</h4>
 <ul>
 <li>Add better touch support for grid view and incorporate a bit of font-awesome flashiness</li>

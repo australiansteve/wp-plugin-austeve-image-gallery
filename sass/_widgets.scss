@@ -1,0 +1,75 @@
+
+/* Styling of gallery previews ie. Widget styling */
+
+ul.austeve_gallery_preview li {
+	height: 300px;
+	max-height: 300px;
+	border: none;
+	padding: 0.5rem 0.5rem;
+	margin: 0;
+
+}
+
+/* Format 0 - Grid */
+
+.widget_austeve_gallery_widget.preview-format-0 .container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.widget_austeve_gallery_widget.preview-format-0 .layover {
+	display: none;
+	position: relative;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Black */
+	z-index: 2; 
+	color: white;
+}
+
+.widget_austeve_gallery_widget.preview-format-0 .layover > .header, .widget_austeve_gallery_widget.preview-format-0 .layover > .middle, .widget_austeve_gallery_widget.preview-format-0 .layover > .footer {
+	height: 33%;
+}
+
+.widget_austeve_gallery_widget.preview-format-0 .layover > .header {
+	padding-top: 2rem;
+}
+
+.widget_austeve_gallery_widget.preview-format-0 .layover .title {
+	color: white;
+}
+
+.widget_austeve_gallery_widget.preview-format-0 .bg-img {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+/* Format 1 - Small panel */
+
+li.widget_austeve_gallery_widget.preview-format-1 {
+	margin: 0 0 1rem 0;
+	padding: 0;
+}
+
+.widget_austeve_gallery_widget.preview-format-1 .container {
+	border: 2px solid black;
+  	padding: 1rem;
+}
+
+
+.widget_austeve_gallery_widget.preview-format-1 .header {
+	float:left;
+}
+
+
+.widget_austeve_gallery_widget.preview-format-1 .footer {
+	text-align: right;
+}
