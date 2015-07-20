@@ -16,6 +16,11 @@ To use this plugin, first install dependencies with:
 
 <h3>Change history</h3>
 
+<h4>1.0.15</h4>
+<ul>
+<li>Styling and show/hide of the directional arrows</li>
+</ul>
+
 <h4>1.0.14</h4>
 <ul>
 <li>Allow for >8 images </li>with thumbnails by scrolling the preview panel</li>
