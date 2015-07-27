@@ -38,7 +38,9 @@ function insert_images($atts) {
         'taxonomy' => 'media_category',
         'slug' => 'default-slug',
         'num_images' => '-1',
-        'image_previews' => 'false'
+        'image_previews' => 'false',
+        'autoplay' => 'false',
+        'autoplay_speed' => '-1'
     ), $atts );
 
 
@@ -50,7 +52,24 @@ function insert_images($atts) {
         $returnString .= " image-dots";
     }
 
-    $returnString .= "'>";
+    $returnString .= "'";
+
+    //Set autoplay values for this instance of the widget
+    $autoplay = ($atts['autoplay'] === "true" ? true : false);
+    if ($autoplay)
+    {
+        $returnString .= " data-slick='{";
+        $returnString .= "\"autoplay\": true";
+
+        if (intval($atts['autoplay_speed']) > 0)
+        {
+            $returnString .= ", \"autoplaySpeed\" : ".$atts['autoplay_speed'];
+        }
+        
+        $returnString .= "}'";
+    }
+
+    $returnString .= ">";
 
 	$image_ids = get_attachment_ids_by_slug( $atts['slug'], $atts['taxonomy']);
 
