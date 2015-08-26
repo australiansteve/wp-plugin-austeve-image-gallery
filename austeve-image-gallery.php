@@ -3,7 +3,7 @@
  * Plugin Name: AUSteve Image Gallery
  * Plugin URI: https://github.com/australiansteve/wp-plugins/austeve-image-gallery
  * Description: Display a set of images in a page or post
- * Version: 1.0.15
+ * Version: 1.0.16
  * Author: AustralianSteve
  * Author URI: http://AustralianSteve.com
  * License: GPL2
@@ -40,7 +40,8 @@ function insert_images($atts) {
         'num_images' => '-1',
         'image_previews' => 'false',
         'autoplay' => 'false',
-        'autoplay_speed' => '-1'
+        'autoplay_speed' => '-1',
+        'border' => 'false'
     ), $atts );
 
 
@@ -50,6 +51,11 @@ function insert_images($atts) {
     if ($imageDots)
     {
         $returnString .= " image-dots";
+    }
+
+    if ($atts['border'] !== "false")
+    {
+        $returnString .= " border-".$atts['border'];
     }
 
     $returnString .= "'";

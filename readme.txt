@@ -16,6 +16,11 @@ To use this plugin, first install dependencies with:
 
 <h3>Change history</h3>
 
+<h4>1.0.16</h4>
+<ul>
+<li>Add ability to add a black border around a gallery as a shortcode argument. Use border="black" to use the default styling, or border=""whatever" if you add your own CSS class</li>
+</ul>
+
 <h4>1.0.15</h4>
 <ul>
 <li>Styling and show/hide of the directional arrows</li>
