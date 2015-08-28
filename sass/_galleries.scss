@@ -17,10 +17,12 @@ div.austeve-gallery-image-container > img{
 
 .slick-prev {
 	left: 0px;
+    text-align: left;
 }
 
 .slick-next {
 	right: 0px;
+    text-align: right;
 }
 
 .slick-prev:before, .slick-next:before { 
@@ -29,7 +31,7 @@ div.austeve-gallery-image-container > img{
 }
 
 .slick-prev, .slick-next {
-	width: 30px;
+    width: 50%;
  	height: 100%;
  	top: 0;
   	margin: 0;
