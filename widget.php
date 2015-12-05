@@ -99,12 +99,31 @@ class austeve_gallery_widget extends WP_Widget {
         <p>
         <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
         <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+        </p>
+
+        <p>
+        <label for="<?php echo $this->get_field_id( 'action_url' ); ?>"><?php _e( 'Page: ' ); ?></label> 
+        <?php
+            wp_dropdown_pages(array(
+            'id' => $this->get_field_id('action_url'),
+            'name' => $this->get_field_name('action_url'),
+            'selected' => $instance['action_url']
+        ));
+        ?>
+        </p>
+
+        <p>
         <label for="<?php echo $this->get_field_id( 'preview_image' ); ?>"><?php _e( 'Preview image:' ); ?></label> 
-        <input class="widefat" id="<?php echo $this->get_field_id( 'preview_image' ); ?>" name="<?php echo $this->get_field_name( 'preview_image' ); ?>" type="text" value="<?php echo esc_attr( $preview_image ); ?>" />
+        <input name="<?php echo $this->get_field_name( 'preview_image' ); ?>" id="<?php echo $this->get_field_id( 'preview_image' ); ?>" class="widefat" type="text" size="36"  value="<?php echo esc_url( $preview_image ); ?>" />
+        <input class="upload_image_button" type="button" value="Select/Upload Image" />
+        </p>
+
+        <p>
         <label for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Short description:' ); ?></label> 
         <input class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>" type="text" value="<?php echo esc_attr( $description ); ?>" />
-        <label for="<?php echo $this->get_field_id( 'action_url' ); ?>"><?php _e( 'Link URL:' ); ?></label> 
-        <input class="widefat" id="<?php echo $this->get_field_id( 'action_url' ); ?>" name="<?php echo $this->get_field_name( 'action_url' ); ?>" type="text" value="<?php echo esc_attr( $action_url ); ?>" />
+        </p>
+
+        <p>
         <label for="<?php echo $this->get_field_id( 'action_verb' ); ?>"><?php _e( 'Link wording:' ); ?></label> 
         <input class="widefat" id="<?php echo $this->get_field_id( 'action_verb' ); ?>" name="<?php echo $this->get_field_name( 'action_verb' ); ?>" type="text" value="<?php echo esc_attr( $action_verb ); ?>" />
         </p>
@@ -144,4 +163,17 @@ function austeve_gallery_load_widget() {
     }
 }
 add_action( 'widgets_init', 'austeve_gallery_load_widget' );
+
+function austeve_gallery_enqueue_widget_scripts($hook) {
+    if ( 'widgets.php' != $hook ) {
+        return;
+    }
+
+    wp_enqueue_script('thickbox', null, array('jquery'));
+    wp_enqueue_script('media-upload');
+    wp_enqueue_style('thickbox');
+    wp_enqueue_script('austeve-gallery-image-uploads', plugins_url( '/js/widget-header.js', __FILE__ ) );
+}
+add_action( 'admin_enqueue_scripts', 'austeve_gallery_enqueue_widget_scripts' );
+
 ?>

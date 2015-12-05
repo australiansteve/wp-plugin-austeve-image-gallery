@@ -16,6 +16,11 @@ To use this plugin, first install dependencies with:
 
 <h3>Change history</h3>
 
+<h4>2.0.0</h4>
+<ul>
+<li>Added page dropdown and image selection buttons in widget, making things a lot simpler for average users.</li>
+</ul>
+
 <h4>1.0.16</h4>
 <ul>
 <li>Add ability to add a black border around a gallery as a shortcode argument. Use border="black" to use the default styling, or border=""whatever" if you add your own CSS class</li>

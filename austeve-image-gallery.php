@@ -3,7 +3,7 @@
  * Plugin Name: AUSteve Image Gallery
  * Plugin URI: https://github.com/australiansteve/wp-plugins/austeve-image-gallery
  * Description: Display a set of images in a page or post
- * Version: 1.0.16
+ * Version: 2.0.0
  * Author: AustralianSteve
  * Author URI: http://AustralianSteve.com
  * License: GPL2
