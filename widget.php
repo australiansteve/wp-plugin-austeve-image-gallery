@@ -35,10 +35,10 @@ class austeve_gallery_widget extends WP_Widget {
             $widgetOutput .= "<div class='layover'>";
             $widgetOutput .= "<div class='header'><h2 class='title'>".$instance['title']."</h2></div>";
             $widgetOutput .= "<div class='middle'><div class='description'>".$instance['description']."</div></div>";
-            $widgetOutput .= "<div class='footer'><a href='".$instance['action_url']."' class='button action-url' title='".$instance['title']."'>".$instance['action_verb']." <i class='fa fa-arrow-circle-right'></i></a></div>";
+            $widgetOutput .= "<div class='footer'><a href='".get_site_url()."/?p=".$instance['action_url']."' class='button action-url' title='".$instance['title']."'>".$instance['action_verb']." <i class='fa fa-arrow-circle-right'></i></a></div>";
             $widgetOutput .= "</div>"; //div.layover
 
-            $widgetOutput .= "<a href='".$instance['action_url']."' class='action-url'>";
+            $widgetOutput .= "<a href='".get_site_url()."/?p=".$instance['action_url']."' class='action-url'>";
             $widgetOutput .= "<div class='bg-img' style='background-image: url(\"".$instance['preview_image']."\")'></div>";
             $widgetOutput .= "</a>";
 

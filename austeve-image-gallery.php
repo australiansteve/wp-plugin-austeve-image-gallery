@@ -143,4 +143,13 @@ function add_init_scripts() {
 }
 add_action('init', 'add_init_scripts');
 
+function austeve_image_gallery_admin_style($hook) {
+    if ( 'widgets.php' != $hook ) {
+        return;
+    }
+    wp_register_style( 'austeve_image_gallery_admin_css', plugin_dir_url(__FILE__) . '/style-admin.css', false, '1.0.0' );
+    wp_enqueue_style( 'austeve_image_gallery_admin_css' );
+}
+add_action( 'admin_enqueue_scripts', 'austeve_image_gallery_admin_style' );
+
 ?>
