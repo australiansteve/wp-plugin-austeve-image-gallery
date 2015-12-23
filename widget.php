@@ -150,13 +150,15 @@ function austeve_gallery_load_widget() {
     $options = get_option('austeve_image_gallery_options');
     $s = isset($options['num_sidebars']) ? $options['num_sidebars'] : '1';
     $pf = isset($options['preview_format']) ? $options['preview_format'] : '0';
+    $cont = isset($options['container']) ? $options['container'] : 'li';
+    $classes = isset($options['classes']) ? $options['classes'] : '';
 
     for ( $i = 1; $i <= $s; $i++ ) {
         register_sidebar( array(
             'name'          => 'Gallery preview sidebar '.$i,
             'id'            => 'austeve_gallery_'.$i,
-            'before_widget' => '<li class="widget_austeve_gallery_widget preview-format-'.$pf.'">',
-            'after_widget'  => '</li>',
+            'before_widget' => '<'.$cont.' class="widget_austeve_gallery_widget preview-format-'.$pf.' '.$classes.'">',
+            'after_widget'  => '</'.$cont.'>',
             'before_title'  => '',
             'after_title'   => '',
         ) );

@@ -49,12 +49,41 @@ function austeve_image_gallery_setting_preview_format() {
 	echo "<br/><strong>Note: </strong><em>Only change this setting if you are sure that your theme supports the selected choice.</em>";
 } 
 
+function austeve_image_gallery_setting_container() {
+	$container_list = array( 
+		'li' => 'li (List Item)', 
+		'div' => 'div' 
+	);
+
+	$options = get_option('austeve_image_gallery_options');
+	$container_val = isset($options['container']) ? $options['container'] : $container_list['li'];
+
+	echo "<select id='austeve_image_gallery_container' name='austeve_image_gallery_options[container]'>";
+
+	foreach($container_list as $key => $value) {
+		echo "<option value='".$key."'";
+		if ($key == $container_val) {
+			echo " selected";
+		}
+		echo ">".$value."</option>";
+	}
+	echo "</select>";
+} 
+
+function austeve_image_gallery_setting_classes() {
+	$options = get_option('austeve_image_gallery_options');
+	$classes_val = isset($options['classes']) ? $options['classes'] : '';
+	echo "<input id='austeve_image_gallery_classes' name='austeve_image_gallery_options[classes]' size='40' type='text' value='{$classes_val}' />";
+} 
+
 // add the admin settings and such
 function austeve_image_gallery_admin_init(){
 	register_setting( 'austeve_image_gallery_options', 'austeve_image_gallery_options', 'austeve_image_gallery_options_validate' );
 	add_settings_section('austeve_image_gallery_main', 'Main Settings', 'austeve_image_gallery_section_text', 'austeve_image_gallery');
 	add_settings_field('austeve_image_gallery_num_sidebars', 'Number of sidebars [1-9]:', 'austeve_image_gallery_setting_num_sidebars', 'austeve_image_gallery', 'austeve_image_gallery_main');
 	add_settings_field('austeve_image_gallery_preview_format', 'Gallery preview format:', 'austeve_image_gallery_setting_preview_format', 'austeve_image_gallery', 'austeve_image_gallery_main');
+	add_settings_field('austeve_image_gallery_container', 'Container:', 'austeve_image_gallery_setting_container', 'austeve_image_gallery', 'austeve_image_gallery_main');
+	add_settings_field('austeve_image_gallery_classes', 'Additional classes:', 'austeve_image_gallery_setting_classes', 'austeve_image_gallery', 'austeve_image_gallery_main');
 }
 add_action('admin_init', 'austeve_image_gallery_admin_init');
 
@@ -92,6 +121,10 @@ function austeve_image_gallery_options_validate($input) {
 	    );
 	    return;
 	}
+
+	$options['container'] = $input['container'];
+
+	$options['classes'] = $input['classes'];
 
 	return $options;
 }

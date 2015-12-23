@@ -10,6 +10,14 @@ ul.austeve_gallery_preview li {
 
 }
 
+div.widget_austeve_gallery_widget div.container {
+	min-height: 300px;
+
+	.bg-img {
+		min-height: 300px;
+	}
+}
+
 /* Format 0 - Grid */
 
 .widget_austeve_gallery_widget.preview-format-0 .container {
@@ -27,6 +35,7 @@ ul.austeve_gallery_preview li {
 	background-color: rgba(0, 0, 0, 0.5); /* Black */
 	z-index: 2; 
 	color: white;
+	height: 300px;
 }
 
 .widget_austeve_gallery_widget.preview-format-0 .layover > .header, .widget_austeve_gallery_widget.preview-format-0 .layover > .middle, .widget_austeve_gallery_widget.preview-format-0 .layover > .footer {
